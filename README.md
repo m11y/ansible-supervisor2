@@ -8,6 +8,8 @@ It forks and changes from [ansible-supervisor](https://github.com/eggsby/ansible
 Role Variables
 --------------
 
+`supervisor_conf` file will include all `ini` files in `supervisor_conf_dir`.
+
 ```
 supervisor_conf: '/etc/supervisord.conf'
 supervisor_conf_dir: '/etc/supervisord.d'
