@@ -1,6 +1,6 @@
 
-An [ansible](http://ansibleworks.com) role for install [supervisor](http://supervisord.org/). Only tested on CentOS 6.x currently.
-
+An [ansible](http://ansibleworks.com) role for install [supervisor](http://supervisord.org/) on CentOS, and add init script for running supervisord automatically on startup. Only tested on CentOS 6.x currently.
+ 
 It forks and changes from [ansible-supervisor](https://github.com/eggsby/ansible-supervisor). Init script comes from [Supervisor initscripts](https://github.com/Supervisor/initscripts).
 
 
@@ -40,4 +40,3 @@ License
 -------
 
 MIT
-
