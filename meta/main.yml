@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Junwei Wang
+  description: install supervisor on CentOS 6.x, and add init script for running supervisord automatically on startup
+  company: ""
+  license: MIT
+  min_ansible_version: 1.7
+
+  platforms:
+  - name: EL
+    versions:
+    - 5
+    - 6
+
+  categories:
+  - monitoring
+  - web
+  - system
+dependencies: []
