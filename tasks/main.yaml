@@ -1,20 +1,26 @@
 - name: installing python-setuptools
   yum: name=python-setuptools
+  sudo: yes
 - name: be sure libselinux-python are installed
   yum: name=libselinux-python state=present
+  sudo: yes
 - name: installing supervisor
   easy_install: name=supervisor
+  sudo: yes
 - name: ensuring required supervisor directories
   file: path={{ item }} state=directory
   with_items:
     - '{{ supervisor_conf_dir }}'
+  sudo: yes
 - name: installing supervisor configuration
   template: src=supervisord.conf.j2 dest={{ supervisor_conf }}
+  sudo: yes
   notify:
     - restart supervisord
 
 - name: installing supervisor http server
   when: supervisor_http
+  sudo: yes
   template: src=supervisor-http.ini.j2
             dest={{ supervisor_conf_dir }}/supervisor-http.ini
             mode=754
@@ -23,5 +29,6 @@
   template: src=init-script.j2
             dest=/etc/rc.d/init.d/supervisord
             mode=755
+  sudo: yes
   notify:
     - restart supervisord

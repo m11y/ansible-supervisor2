@@ -1,0 +1,17 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box_check_update = false
+
+  config.vm.box = "chef/centos-6.5"
+
+  # Ansible Provision
+  config.vm.provision "ansible" do |ansible|
+      ansible.limit = 'all'
+      ansible.playbook = "playbook.yml"
+      ansible.verbose = "v"
+  end
+
+
+
+end
