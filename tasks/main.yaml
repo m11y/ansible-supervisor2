@@ -21,14 +21,14 @@
 - name: installing supervisor http server
   when: supervisor_http
   sudo: yes
-  template: src=supervisor-http.ini.j2
-            dest={{ supervisor_conf_dir }}/supervisor-http.ini
-            mode=754
+  template: src=supervisor-http.ini.j2 dest={{ supervisor_conf_dir }}/supervisor-http.ini mode=754
 
 - name: installing init script
-  template: src=init-script.j2
-            dest=/etc/rc.d/init.d/supervisord
-            mode=755
+  template: src=init-script.j2 dest=/etc/rc.d/init.d/supervisord mode=755
   sudo: yes
   notify:
     - restart supervisord
+
+- name: insure supervisor is started
+  service: name=supervisord state=started
+  sudo: yes
